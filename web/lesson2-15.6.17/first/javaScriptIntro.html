@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<script>
+			
+			//console.log(distance(6,9));
+			
+			//console.log(product(4,7));
+			
+			//var arr = [4,10,15];
+			//console.log(reverse(arr));
+			
+			var player1 = new Object();
+			player1.name = "Maayan";
+			player1.score = 45;
+			player1.getDetails = playerDetails;
+			
+			var player2 = {name: "Moshe", score:33};
+			player2.getDetails = playerDetails;
+			
+			var player3 = {name: "yossi", score:55};
+			player3.getDetails = function(){
+				return this.name + ", " + this.score;
+			};
+			
+			function playerDetails(){
+				return this.name + ", " + this.score;
+			}
+			
+			console.log(player1.getDetails());
+			console.log(player2.getDetails());
+			console.log(player3.getDetails());
+			
+			function reverse(arr){
+				//return arr.reverse();
+				var rev = new Array(); //[];
+				for(var i = arr.length-1; i >= 0; i--){
+					rev.push(arr[i]);
+				}
+				return rev;
+			}
+			
+			function product(x,y){
+				var small = x;
+				var large = y;
+				if(small > large) {
+					small = y;
+					large = x;
+				}
+				var result = 0;
+				for(var i = 0; i < small; i++){
+					result += large;
+				}
+				return result;
+			}
+			
+			function distance(x,y){
+				var result = 0;
+				var small = x;
+				var large = y;
+				if(small > large){
+					small = y;
+					large = x;
+				}
+				while(small + result < large){
+					result++;
+				}
+				return result;
+			}
+		
+		</script>
+	</head>
+	<body>
+	
+	
+	
+	</body>
+</html>
