@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<script>
+		
+			var arr = [1, 3, 4, 6, 14, 120, 200, 850, 4000];	// ordered array!!!
+			
+			console.log(search(56567));
+			
+			function search(number){
+				var min = 0;
+				var max = arr.length - 1;
+				var middle;
+				while(min <= max){
+					middle = (max+min) / 2;
+					if(arr[middle] == number){
+						return true;
+					}else if(arr[middle] < number){
+						min = middle + 1;
+					}else{
+						max = middle - 1;
+					}
+				}
+				return false;
+			}
+	
+	
+		</script>
+	</head>
+	<body>
+	
+	
+	</body>
+</html>

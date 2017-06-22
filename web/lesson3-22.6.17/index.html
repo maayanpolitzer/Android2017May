@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css"/>
+		<script src="script.js"></script>
+	</head>
+	<body onload="init()">
+		<div id="mainDiv">
+			<canvas onmousedown="start(event)" onmouseup="stop(event)" onmousemove="draw(event)">Your browser does not support html 5</canvas>
+			<ul id="list">
+				<li onclick="changeSelected()" class="selected" style="background-color:red"></li>
+				<li onclick="changeSelected()" style="background-color:green"></li>
+				<li onclick="changeSelected()" style="background-color:blue"></li>
+			</ul>
+			<button id="displayTableButton" onclick="tableDisplayToggle()">Add new color</button>
+			<table id="table">
+				<tr>
+					<td rowspan="3">
+						<div id="preview"></div>
+					</td>
+					<td>Red</td>
+					<td>
+						<input oninput="updatePreviewColor()" type="range" min="0" max="255"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Green</td>
+					<td>
+						<input oninput="updatePreviewColor()" type="range" min="0" max="255"/>
+					</td>
+				</tr>
+				<tr>
+					<td>Blue</td>
+					<td>
+						<input oninput="updatePreviewColor()" type="range" min="0" max="255"/>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<button onclick="saveColor()" id="saveColorButton">Save color</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
