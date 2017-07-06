@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<script src="jquery-3.2.1.min.js"></script>
+		<!--<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+		<!--<script src="script.js"></script>-->
+		<script>
+			$(document).ready(function(){
+				$("p").click(function(){
+					console.log("p tag clicked");
+				});
+				
+				$("#btn").click(function(){
+					$("#img").slideToggle();
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<p>dlfkgjdfg</p>
+		<button id="btn">click</button>
+		<br/>
+		<img id="img" src="https://www.organicfacts.net/wp-content/uploads/2013/05/Banana3-1020x765.jpg" />
+	</body>
+</html>

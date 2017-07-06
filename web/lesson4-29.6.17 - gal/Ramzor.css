@@ -1,0 +1,13 @@
+#ramzor {
+	width:		31vh;
+	background:	black;
+	text-align: center;
+}
+
+#ramzor>.light{
+	display:		inline-block;
+	width:			30vh;
+	height:			30vh;
+	margin:			0.5vh 0;
+	border-radius:	50%;
+}

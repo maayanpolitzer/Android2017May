@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<script>
+			function changeColor(element){
+				if(element.style.color == "green"){
+					element.style.color = "black";
+				}else{
+					element.style.color = "green";
+				}
+			}
+			
+			function changeView(){
+				var title = document.getElementsByTagName("h1")[0];
+				if(title.style.visibility == "hidden"){
+					title.style.visibility = "visible";
+				}else{
+					title.style.visibility = "hidden";
+				}
+			}
+		
+		</script>
+	</head>
+	<body>
+		<button onclick="changeView()">hide</button>
+	
+		<h1 onclick="changeColor(this)">h1</h1>
+		<p onclick="changeColor(this)">paragraph</p>
+		
+		
+	
+	</body>
+</html>

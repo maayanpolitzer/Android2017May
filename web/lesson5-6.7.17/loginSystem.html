@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<style>
+			table {
+				text-align:center;
+			}	
+		</style>
+		<script src="jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#loginBtn").click(function(){
+					var email = $("#email").val();
+					var password = $("#password").val();
+					if(email.length == 0 || password.length == 0){
+						alert("what??????");
+						return;
+					}
+					var jsonObject = {
+						"action":"LOGIN",
+						"email":email,
+						"password":password
+					};
+					$.ajax({
+						type: "POST",
+						
+						url: "http://104.199.43.149/project/server",
+						headers: {
+						  "Access-Control-Allow-Origin: ": "*",
+						  "Access-Control-Allow-Methods: ": "POST",
+						  "Access-Control-Allow-Headers: ": "Authorization"
+						},
+						dataType:"json",
+						crossOrigin: true,
+						crossDomain: true,
+						contentType: "application/json;charset=utf-8",
+						data: jsonObject,
+						success: function(msg){
+							console.log("YWY");
+						},
+						error: function(e){
+							console.log(e);
+						}
+					});
+				});
+			});
+		
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>Email</td>
+				<td>:</td>
+				<td>
+					<input type="text" id="email" placeholder="example@example.com"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td>:</td>
+				<td>
+					<input type="password" id="password" placeholder="password"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<button id="loginBtn">Login</button>
+				</td>
+			</tr>
+		
+		</table>
+	
+	
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>awesome bubu</title>
+		
+		<!--default mode-->
+		<script id="script1">
+			//var feed = document.getElementById('feed'); //will get error because its before onload
+			//feed.textContent = "hello world";
+		</script>
+		<script id="script2">
+			// will run only after script1
+		</script>
+		<!--defer mode-->
+		<script defer id="defer1" src="defer1.js">
+		</script>
+		<script async id="async1">
+			setTimeout(function(){
+				console.log("async1 done");
+			},1000)
+		</script>
+		<script async id="async2">
+			//this will run asynchronously to script async1
+			console.log("async2 done");
+		</script>
+		<!--
+			script modes:
+				- default: (without defer or async) asynchronous to DOM but synchronous to other scripts
+				- defer:	synchronous to DOM (equivalent to document.ready) AND to other scripts (must to be outer source)
+				- async:	asynchronous to other scripts
+		-->
+	</head>
+	
+	<body>
+		<div id="feed"></div>
+		<div id="group">
+			<div id="one" class="g"> this is my first div</div>
+			<div id="groot" class="g">this is my second div!!</div>
+			<button class="g">click here to be awesome</button>
+		</div>
+	</body>
+	
+	
+</html>

@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<script src="jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+			
+				$("#btn").click(function(){
+					$.ajax({
+						url:"http://104.199.43.149/StudentsServer/MainServlet?name=kim&response=array",
+						success: function(data){
+							for(var i = 0; i < data.length; i++){
+								var nameTag = $("<h2/>");
+								// insert name to nameTag.
+								nameTag.html(data[i].FullName);
+								// insert nameTag to mainDiv.
+								$("#mainDiv").append(nameTag);
+							}
+						},
+						error: function(e){
+							console.log("error");
+						}
+					});
+				});
+			
+			
+			});
+		
+		</script>
+	</head>
+	<body>
+		<button id="btn">getData</button>
+		<div id="mainDiv">
+			
+		</div>
+	
+	
+	
+	</body>
+</html>
