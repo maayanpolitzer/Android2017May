@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			ul {
+				width: 20%;
+				float: right;
+				list-style: none;
+				padding-left:0;
+				margin-top: 0;
+				
+			}
+			
+			li {
+				padding: 16px 0;
+				text-align:center;
+				margin: 4px;
+				border: 1px solid #000;
+				transition: background-color 0.2s;
+			}
+			
+			li:hover {
+				background-color:lightblue;
+				font-weight: bold;
+			}
+			
+			#chatArea {
+				background-color:pink;
+				float:left;
+				width:80%;
+				padding: 0 20px;
+				box-sizing: border-box;
+				height: 100vh;
+			}
+			
+			#title {
+				text-align: center;
+			}
+		
+		</style>
+		<script src="jquery-3.2.1.min.js"></script>
+		<script src="script.js"></script>
+		<script>
+		
+			var recipientID;
+			var myID = localStorage.getItem("id");
+			var message;
+			var running = false;
+		
+			var jsonObject = {
+				"action": "GET_USERS",
+				"userID": myID
+			};
+			
+			var data = {
+				"action":"GET_MESSAGE",
+				"userID": myID
+			};
+		
+			$(document).ready(function(){
+				connectToServer(jsonObject, displayList);
+				
+				$("#usersList").on("click", "li", function(){
+					$("#title").html("Chat with " + $(this).html());
+					recipientID = $(this).val();
+					if(!running){
+						running = true;
+						getMessages();
+					}
+				});
+				
+				$("#sendBtn").click(function(){
+					message = $("#message_input").val();
+					var outputMessage = {
+						"action": "SEND_MESSAGE",
+						"from": myID,
+						"to": recipientID,
+						"message": message
+					};
+					connectToServer(outputMessage, displayOutgoingMessage);
+				});
+			});	
+			
+			function getMessages(){
+				var worker = new Worker('bigLoop.js');
+				worker.onmessage = function (event) {
+					alert("Completed " + event.data + "iterations" );
+				};
+				postMessage(9);
+			}
+         
+			function sayHello(){
+				alert("Hello sir...." );
+			}
+				
+			
+			
+			var displayOutgoingMessage = function(data){
+				if(data.response){
+					drawMessage(false, message);
+				}
+			};
+			
+			function drawMessage(incoming, text){
+				var h = $("<h1/>");
+				h.html(text);
+				h.css("text-align", incoming ? "left" : "right");
+				$("#messages_view").append(h);
+				
+			}
+			
+			var displayList = function(data){
+				var users = data.users;
+				for(var i = 0; i < users.length; i++){
+					var li = $("<li/>");
+					li.html(users[i].email);
+					li.val(users[i].userID);
+					$("#usersList").append(li);
+				}
+			};
+		
+		</script>
+	</head>
+	<body>
+		<div id="chatArea">
+			<h1 id="title"></h1>
+			<div id="messages_view">
+			
+			</div>
+			<div id="input">
+				<input type="text" placeholder="Enter your message" id="message_input"/>
+				<button id="sendBtn">Send</button>
+			</div>
+		</div>
+		<ul id="usersList"/>
+		
+	</body>
+</html>

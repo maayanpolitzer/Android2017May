@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<style>
+			table {
+				text-align:center;
+			}	
+		</style>
+		<script src="jquery-3.2.1.min.js"></script>
+		<script src="script.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#loginBtn").click(function(){
+					var email = $("#email").val();
+					var password = $("#password").val();
+					if(email.length == 0 || password.length == 0){
+						alert("what??????");
+						return;
+					}
+					var jsonObject = {
+						"action":"LOGIN",
+						"email":email,
+						"password":password
+					};
+					connectToServer(jsonObject, handleResponse);
+				});
+			});
+			
+			var handleResponse = function handleResponse(data){
+				var id = data.userID;
+				if(id != -1){
+					localStorage.setItem("id", id);
+					window.location = "main.html";
+				}
+			}
+			
+			/*
+			public class Server{
+				private ArrayList<User> user;
+				
+				public Server(){
+					users = new ArrayList<>();
+				}
+				
+				public JSONObject login(String email, String password){
+					JSONObject object = new JSONObject();
+					for(int i = 0; i < users.size(); i++){
+						if(users.get(i).getEmail().equals(email) && users.get(i).getPassword().equals(password){
+							object.put("userID", users.get(i).getID());
+							return object;
+						}
+					}
+					object.put("userID", -1);
+					return object;
+				}
+			}
+			*/
+			
+		</script>
+	</head>
+	<body>
+		<h1 id="title"></h1>
+		<table>
+			<tr>
+				<td>Email</td>
+				<td>:</td>
+				<td>
+					<input type="text" id="email" placeholder="example@example.com"/>
+				</td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td>:</td>
+				<td>
+					<input type="password" id="password" placeholder="password"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<button id="loginBtn">Login</button>
+				</td>
+			</tr>
+		
+		</table>
+		
+		<a href="register.html">Create account</a>
+	
+	
+	</body>
+</html>

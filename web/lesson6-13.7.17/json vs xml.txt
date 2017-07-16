@@ -1,0 +1,2 @@
+{"action":"LOGIN","email":"maayan@gmail.com","password":"123"}
+<object><action>"LOGIN"</action><email>"maayan@gmail.com</email><password>"123"</password></object>
