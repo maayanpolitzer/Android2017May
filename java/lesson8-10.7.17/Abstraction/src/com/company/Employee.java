@@ -1,0 +1,10 @@
+package com.company;
+
+/**
+ * Created by hackeru on 7/10/2017.
+ */
+public abstract class Employee extends Person {
+
+    public abstract void wow();
+
+}
