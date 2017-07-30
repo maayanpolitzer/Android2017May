@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="resources/css/style.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>	
+		<script src="resources/js/app.js"></script>
+		<script src="resources/js/controllers/mainCtrl.js"></script>
+		<script src="resources/js/controllers/secondCtrl.js"></script>
+		<script src="resources/js/services/usersService.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<header>
+		
+		</header>
+		<div style="display:flex">
+			<aside>
+				<ul>
+					<li>מסך הבית</li>
+					<li>יצירת משתמש</li>
+				</ul>
+			</aside>
+			<!--
+			<main ng-controller="mainCtrl" ng-init="getUsers();">
+				<table class="table table-striped">
+					<tr ng-repeat="user in users">
+						<td ng-click="userClick(user);">
+							<i style="margin-left:8px" class="ion-eye"></i> {{user}}
+						</td>
+						<td>
+							<i ng-click="deleteUser(user)" class="ion-ios-trash"></i>
+						</td>
+					</tr>
+				</table>
+			</main>
+			-->
+			<main ng-controller="secondCtrl">
+				<input type="radio" name="userType" ng-model="x" value="1"> מנהל
+				<input type="radio" name="userType" ng-model="x" value="0">	משתמש
+				<br/>
+				<div ng-show="x == '1'">
+					<form name="myForm">
+						<div class="input-group">
+							<input class="form-control" name="input" ng-model="input" type="email" placeholder="Enter your email"/>
+						</div>
+						<button ng-disabled="myForm.input.$invalid" ng-click="click()">{{y}}</button>
+					</form>
+				</div>
+				<div ng-hide="x == '1'">
+				
+				
+				</div>
+			</main>
+		</div>
+	</body>
+</html>

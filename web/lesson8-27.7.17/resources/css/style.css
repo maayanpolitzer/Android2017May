@@ -1,0 +1,44 @@
+body {
+	margin: 0;
+	direction: rtl;
+	
+}
+header {
+	height: 15vh;
+}
+
+main {
+	height: 85vh;
+	width:100%;
+}
+
+aside {
+	height:85vh;
+	width: 300px;
+}
+
+aside ul {
+	padding-right: 0;
+	list-style: none;
+}
+
+aside ul li {
+	margin: 8px;
+	padding: 8px;
+}
+
+aside ul li:hover {
+	background-color: #bbb;
+}
+
+
+
+
+
+
+
+
+
+
+
+

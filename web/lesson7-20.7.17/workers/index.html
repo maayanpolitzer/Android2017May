@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <script>
+            var div;
+            var worker;
+            
+            function init(){
+                div = document.getElementById("myDiv");
+                worker = new Worker("work.js");
+                worker.addEventListener("message", function(data){
+                    addElement(data.data);
+                });
+            }
+            
+            function btnClick(){
+                worker.postMessage("startWorking...");
+            }
+            
+            function addElement(number){
+                var header = document.createElement("h1");
+                header.innerHTML = "title " + number;
+                div.appendChild(header);
+            }
+        
+        </script>
+    </head>
+    <body onload="init()">
+        <button onclick="btnClick()">start</button>
+        <div id="myDiv">
+        
+        </div>
+    
+    </body>
+</html>

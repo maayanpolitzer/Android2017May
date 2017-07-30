@@ -1,0 +1,8 @@
+@media only screen and (max-width:767px) {
+    .main-nav {
+        display: none;
+    }
+    #menuButton {
+        display: inline-block;
+    }
+}

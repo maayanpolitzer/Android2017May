@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script>
+            var app = angular.module("app", []);
+            app.controller("mainCtrl", ["$scope", function($scope){
+                $scope.name = "Maayan";
+            }]);
+        </script>
+    </head>
+    <body ng-app="app">
+        <div ng-controller="mainCtrl">
+            <h1>hi {{name}}</h1>
+            <input type="text" ng-model="shoval"/>{{shoval}}
+        </div>
+        
+        
+    </body>
+</html>

@@ -1,0 +1,11 @@
+
+<table class="table table-striped" ng-controller="mainCtrl" ng-init="getUsers()">
+	<tr ng-repeat="user in users">
+		<td ng-click="userClick(user);">
+			<i style="margin-left:8px" class="ion-eye"></i> {{user}}
+		</td>
+		<td>
+			<i ng-click="deleteUser(user)" class="ion-ios-trash"></i>
+		</td>
+	</tr>
+</table>
