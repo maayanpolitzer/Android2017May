@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FirstApplication</string>
+    <string name="welcome_text">Welcome</string>
+    <string name="message">Wrong username/password</string>
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SecondApplication</string>
+    <string name="btn_text">Click me</string>
+</resources>
