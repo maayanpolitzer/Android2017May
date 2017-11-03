@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Whatsapp</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button_text">Login</string>
+    <string name="register_now">REGISTER NOW!</string>
+    <string name="dont_have_an_account_yet">Dont have an account yet?</string>
+    <string name="confirm_password_hint">Confirm password</string>
+    <string name="sign_up">sign up</string>
+    <string name="logout">logout</string>
+    <string name="username_hint">Username</string>
+</resources>
